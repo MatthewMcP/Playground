@@ -1,0 +1,10 @@
+D:\Matt\Documents\VSCode\SeekCode\obj\Debug\netcoreapp2.0\SeekCode.csproj.CoreCompileInputs.cache
+D:\Matt\Documents\VSCode\SeekCode\obj\Debug\netcoreapp2.0\SeekCode.AssemblyInfoInputs.cache
+D:\Matt\Documents\VSCode\SeekCode\obj\Debug\netcoreapp2.0\SeekCode.AssemblyInfo.cs
+D:\Matt\Documents\VSCode\SeekCode\bin\Debug\netcoreapp2.0\SeekCode.deps.json
+D:\Matt\Documents\VSCode\SeekCode\bin\Debug\netcoreapp2.0\SeekCode.runtimeconfig.json
+D:\Matt\Documents\VSCode\SeekCode\bin\Debug\netcoreapp2.0\SeekCode.runtimeconfig.dev.json
+D:\Matt\Documents\VSCode\SeekCode\bin\Debug\netcoreapp2.0\SeekCode.dll
+D:\Matt\Documents\VSCode\SeekCode\bin\Debug\netcoreapp2.0\SeekCode.pdb
+D:\Matt\Documents\VSCode\SeekCode\obj\Debug\netcoreapp2.0\SeekCode.dll
+D:\Matt\Documents\VSCode\SeekCode\obj\Debug\netcoreapp2.0\SeekCode.pdb
