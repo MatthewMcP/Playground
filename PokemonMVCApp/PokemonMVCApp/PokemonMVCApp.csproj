@@ -5,9 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
-    <PackageReference Include="bootstrap" Version="4.0.0" />
-    <PackageReference Include="BundleTransformer.Less" Version="1.9.192" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
+    <PackageReference Include="Bootstrap.Less" Version="3.3.7" />
   </ItemGroup>
 
   <ItemGroup>
@@ -16,6 +15,16 @@
 
   <ItemGroup>
     <Folder Include="Views\Pokemon\" />
-    <Folder Include="wwwroot\Styles\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="wwwroot\Styles\Pokemon.css" />
+    <None Remove="Styles\Pokemon.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\css\pokemon.css" />
+    <Content Remove="wwwroot\css\Empty.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="wwwroot\css\pokemon.css" />
   </ItemGroup>
 </Project>
