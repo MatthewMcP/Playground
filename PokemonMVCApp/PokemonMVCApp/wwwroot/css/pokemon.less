@@ -1,13 +1,45 @@
 ﻿//LESS
+@import "colours.less";
 
+#PokeSearch {
 
-.PokemonName {
-    color: red !important;
-    font-size: 22px !important
+    h1, h2 {
+        color: @gold-colour
+    }
+
+    .search-area {
+
+        input {
+            color: @gold-colour;
+            background-color: @blue-colour;
+            border-color: @blue-colour;
+            border-width: 0px;
+
+            select, textarea {
+                color: @gold-colour
+            }
+            textarea:focus, input:focus {
+                color: @gold-colour
+            }
+        }
+    }
+
+    .search-results {
+        color: @gold-colour;
+        font-size: 22px
+    }
 }
 
 
-body {
-    padding-top: 50px;
-    padding-bottom: 30px
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: @gold-colour;
+    opacity: 1 /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: @gold-colour
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: @gold-colour
 }

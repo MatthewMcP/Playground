@@ -1,21 +1,20 @@
 ﻿@model Pokemon
+
 @{
     ViewData["Title"] = "Pokemon";
 }
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <title>@Model.Name</title>
-        <title>Name</title>
-    </head>
-    <body>
 
-        <p class="PokemonName">@Model.Name</p>
-        <title>@Model.Name</title>
-        <title>Name</title>
-    </body>
-</html>
+<div id="PokeSearch" class="">
+    <h1 class="centre"> Sample Search </h1>
+
+    <h2 class="centre"> Type Below To Begin Search </h2>
+    <div class="search-area centre">
+        <input id="search-input" type="text" placeholder="Type Here"/>
+    </div>
+    <div class="search-results">
+        <p>@Model.Name</p>    
+        <p>@Model.Id</p>
+    </div>
+</div>
 
 <link href="*.css" type="text/css" />
-

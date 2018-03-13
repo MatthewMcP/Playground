@@ -19,6 +19,7 @@
   <ItemGroup>
     <None Remove="wwwroot\Styles\Pokemon.css" />
     <None Remove="Styles\Pokemon.css" />
+    <None Remove="wwwroot\css\Colours.css" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\css\pokemon.css" />
