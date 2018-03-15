@@ -1,4 +1,4 @@
-﻿@model Pokemon
+﻿@model PokemonSearchViewModel
 
 @{
     ViewData["Title"] = "Pokemon";
@@ -12,8 +12,12 @@
         <input id="search-input" type="text" placeholder="Type Here"/>
     </div>
     <div class="search-results">
-        <p>@Model.Name</p>    
-        <p>@Model.Id</p>
+        <div  class="col-md-10">
+            @foreach (var pokemon in Model.PokemonList)
+            {
+                @Html.Partial("_Pokemon", pokemon)
+            }
+        </div>
     </div>
 </div>
 
