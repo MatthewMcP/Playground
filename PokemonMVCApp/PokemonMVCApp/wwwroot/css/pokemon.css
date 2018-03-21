@@ -5,8 +5,12 @@
 #PokeSearch .search-area input {
   color: #f1ff8c;
   background-color: #319398;
-  border-color: #319398;
-  border-width: 0px;
+  border-color: #ff4646;
+  border-width: 1px;
+  text-align: center;
+  width: 50%;
+  margin-right: auto;
+  margin-left: auto;
 }
 #PokeSearch .search-area input select,
 #PokeSearch .search-area input textarea {
@@ -18,11 +22,13 @@
 }
 #PokeSearch .search-results {
   color: #f1ff8c;
-  font-size: 22px;
+  font-size: 16px;
 }
 #PokeSearch .search-results .result {
+  overflow: hidden;
   border-style: solid;
-  border-width: 2px;
+  border-width: 2fpx;
+  border-color: #ff4646;
 }
 ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */

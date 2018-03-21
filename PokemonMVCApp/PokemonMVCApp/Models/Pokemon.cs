@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace PokemonMVCApp.Models
 {
     public class Pokemon
@@ -8,6 +10,7 @@ namespace PokemonMVCApp.Models
             Name = name;
             Id = id;
             EvolutionDetails = "Evolves at 39 on a full moon at the middle of the street";
+            PokemonTypesEnum = PokemonTypes.Fighting | PokemonTypes.Poison;
         }
 
         public string Name { get; set; }
@@ -16,5 +19,25 @@ namespace PokemonMVCApp.Models
         public string Id { get; set; }
 
         public string EvolutionDetails { get; set; }
+
+        private PokemonTypes PokemonTypesEnum { get; set; }
+
+        public List<string> PokemonTypesList
+        {
+            get
+            {
+                List<string> list = new List<string>();
+                foreach (Enum value in Enum.GetValues(PokemonTypesEnum.GetType()))
+                {
+                    if (PokemonTypesEnum.HasFlag(value))
+                    {
+                        list.Add(value.ToString());
+                    }
+
+                }
+                return list;
+            }
+        }
+
     }
 }

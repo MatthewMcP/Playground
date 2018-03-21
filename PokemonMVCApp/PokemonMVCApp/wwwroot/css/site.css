@@ -6,7 +6,15 @@ body {
   vertical-align: central;
   text-align: center;
 }
-.spacer {
-  margin-top: 20px;
-  margin-bottom: 20px;
+.spacer_5 {
+  display: block;
+  height: 5px;
+}
+.spacer_10 {
+  display: block;
+  height: 10px;
+}
+.spacer_20 {
+  display: block;
+  height: 20px;
 }

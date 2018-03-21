@@ -4,15 +4,17 @@
     ViewData["Title"] = "Pokemon";
 }
 
-<div id="PokeSearch" class="">
+<div id="PokeSearch" class="row">
     <h1 class="centre"> Sample Search </h1>
 
     <h2 class="centre"> Type Below To Begin Search </h2>
     <div class="search-area centre">
         <input id="search-input" type="text" placeholder="Type Here"/>
     </div>
+    <span class="spacer_20"></span>
+
     <div class="search-results">
-        <div  class="col-md-10">
+        <div>
             @foreach (var pokemon in Model.PokemonList)
             {
                 @Html.Partial("_Pokemon", pokemon)
