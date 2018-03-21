@@ -7,6 +7,7 @@
   background-color: #319398;
   border-color: #ff4646;
   border-width: 1px;
+  border-radius: 15px;
   text-align: center;
   width: 50%;
   margin-right: auto;
@@ -27,7 +28,8 @@
 #PokeSearch .search-results .result {
   overflow: hidden;
   border-style: solid;
-  border-width: 2fpx;
+  border-radius: 15px;
+  border-width: 2px;
   border-color: #ff4646;
 }
 ::placeholder {
