@@ -52,10 +52,12 @@
                 <p>Locations:</p>    
             </div>
             <div class="col-md-10">
+            <ul>
                 @foreach(var location in Model.Locations)
                 {
-                    <p>TODO Bullet Point @location</p>    
+                      <li>@location</li>
                 }
+                </ul>  
             </div>
         </div>
     </div>
