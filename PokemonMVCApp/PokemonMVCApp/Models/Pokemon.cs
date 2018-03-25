@@ -11,6 +11,7 @@ namespace PokemonMVCApp.Models
             Id = id;
             EvolutionDetails = "Evolves at 39 on a full moon at the middle of the street";
             PokemonTypesEnum = PokemonTypes.Fighting | PokemonTypes.Poison;
+            Locations = new List<string> { "Route 1", "Route 66: Talk to Jessica -> Trade for Abra" };
         }
 
         public string Name { get; set; }
@@ -19,6 +20,8 @@ namespace PokemonMVCApp.Models
         public string Id { get; set; }
 
         public string EvolutionDetails { get; set; }
+
+        public List<string> Locations { get; set; }
 
         private PokemonTypes PokemonTypesEnum { get; set; }
 

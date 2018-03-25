@@ -3,33 +3,60 @@
 
 <div class="result">
     <span class="spacer_5"></span>
-    <div>
-        <div class="col-md-4">
-            <p>Name: @Model.Name</p>    
-        </div>
-        <div class="col-md-4">
-            <p>ID: @Model.Id</p>
-        </div>
-        <div class="col-md-4">
-           @{
-                   var NumOfTypes = Model.PokemonTypesList.Count;
-                   if(NumOfTypes == 1)
-                    {
-                        <p>Type: @Model.PokemonTypesList[0] </p>
-                    }
-                    else
-                    {
-                        
-                        <p>
-                            Type: @Model.PokemonTypesList[0] / @Model.PokemonTypesList[1]    
-                        </p> 
-                    }
-            }
-        </div>
+
+    <div class="col-md-2">
+        <p>Picture Goes Here</p>    
     </div>
-    <div>
-        <div class="col-md-12">
-            <p>Evolultion Details: @Model.EvolutionDetails</p>    
+    <div class="col-md-10">
+            <div class="col-md-1">
+                <p>Name:</p>    
+            </div>
+            <div class="col-md-2">
+                <p>@Model.Name</p>    
+            </div>
+            <div class="col-md-1">
+                <p>ID:</p>
+            </div>
+            <div class="col-md-2">
+                <p>@Model.Id</p>
+            </div>
+            <div class="col-md-1">
+                <p>Type:</p>
+            </div>
+            <div class="col-md-5">
+               @{
+                       var NumOfTypes = Model.PokemonTypesList.Count;
+                       if(NumOfTypes == 1)
+                        {
+                            <p>@Model.PokemonTypesList[0] </p>
+                        }
+                        else
+                        {
+                            
+                            <p>
+                                @Model.PokemonTypesList[0] / @Model.PokemonTypesList[1]    
+                            </p> 
+                        }
+                }
+            </div>
+        <div>
+            <div class="col-md-2">
+                <p>Evolultion:</p>    
+            </div>
+            <div class="col-md-10">
+                <p>@Model.EvolutionDetails</p>    
+            </div>
+        </div>
+        <div>
+            <div class="col-md-2">
+                <p>Locations:</p>    
+            </div>
+            <div class="col-md-10">
+                @foreach(var location in Model.Locations)
+                {
+                    <p>TODO Bullet Point @location</p>    
+                }
+            </div>
         </div>
     </div>
 </div>
