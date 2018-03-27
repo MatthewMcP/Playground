@@ -1,11 +1,11 @@
 #PokeSearch h1,
 #PokeSearch h2 {
-  color: #f1ff8c;
+  color: #b3a125;
 }
 #PokeSearch .search-area input {
-  color: #f1ff8c;
-  background-color: #319398;
-  border-color: #ff4646;
+  color: #b3a125;
+  background-color: #3b4cca;
+  border-color: #cc0000;
   border-width: 2px;
   border-radius: 15px;
   text-align: center;
@@ -15,14 +15,14 @@
 }
 #PokeSearch .search-area input select,
 #PokeSearch .search-area input textarea {
-  color: #f1ff8c;
+  color: #b3a125;
 }
 #PokeSearch .search-area input textarea:focus,
 #PokeSearch .search-area input input:focus {
-  color: #f1ff8c;
+  color: #b3a125;
 }
 #PokeSearch .search-results {
-  color: #f1ff8c;
+  color: #b3a125;
   font-size: 16px;
 }
 #PokeSearch .search-results .result {
@@ -30,18 +30,18 @@
   border-style: solid;
   border-radius: 15px;
   border-width: 2px;
-  border-color: #ff4646;
+  border-color: #cc0000;
 }
 ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #f1ff8c;
+  color: #b3a125;
   opacity: 1 /* Firefox */;
 }
 :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
-  color: #f1ff8c;
+  color: #b3a125;
 }
 ::-ms-input-placeholder {
   /* Microsoft Edge */
-  color: #f1ff8c;
+  color: #b3a125;
 }
