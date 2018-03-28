@@ -5,25 +5,18 @@
     <span class="spacer_5"></span>
 
     <div class="col-xs-2">
-        <p>Picture Goes Here</p>    
+        <p class="font_bold">@Model.Name</p>    
+        <img class="pkm pkm001" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" >
+
     </div>
     <div class="col-xs-10">
-            <div class="col-sm-1 col-xs-4">
-                <p>Name:</p>    
+            <div class="col-sm-2 col-xs-3">
+                <p>ID: @Model.Id</p>
             </div>
-            <div class="col-sm-2 col-xs-8">
-                <p>@Model.Name</p>    
-            </div>
-            <div class="col-sm-1 col-xs-4">
-                <p>ID:</p>
-            </div>
-            <div class="col-sm-2 col-xs-8">
-                <p>@Model.Id</p>
-            </div>
-            <div class="col-sm-1 col-xs-4">
+            <div class="col-sm-1 col-xs-2">
                 <p>Type:</p>
             </div>
-            <div class="col-sm-5 col-xs-8">
+            <div class="col-sm-9 col-xs-7">
                @{
                        var NumOfTypes = Model.PokemonTypesList.Count;
                        if(NumOfTypes == 1)
@@ -32,7 +25,6 @@
                         }
                         else
                         {
-                            
                             <p>
                                 @Model.PokemonTypesList[0] / @Model.PokemonTypesList[1]    
                             </p> 
@@ -40,18 +32,18 @@
                 }
             </div>
         <div>
-            <div class="col-xs-3">
+            <div class="col-sm-2 col-xs-3">
                 <p>Evolultion:</p>    
             </div>
-            <div class="col-xs-9">
+            <div class="col-sm-10 col-xs-9">
                 <p>@Model.EvolutionDetails</p>    
             </div>
         </div>
         <div>
-            <div class="col-xs-2">
+            <div class="col-sm-2 col-xs-3">
                 <p>Locations:</p>    
             </div>
-            <div class="col-xs-10">
+            <div class="col-sm-10 col-xs-9">
             <ul>
                 @foreach(var location in Model.Locations)
                 {
