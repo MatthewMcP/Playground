@@ -21,6 +21,7 @@
     <None Remove="Styles\Pokemon.css" />
     <None Remove="wwwroot\css\Colours.css" />
     <None Remove="spritemap.less" />
+    <None Remove="wwwroot\pokeball.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\css\pokemon.css" />

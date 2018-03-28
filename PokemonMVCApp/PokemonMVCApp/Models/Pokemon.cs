@@ -12,6 +12,8 @@ namespace PokemonMVCApp.Models
             EvolutionDetails = "Evolves at 39 on a full moon at the middle of the street";
             PokemonTypesEnum = PokemonTypes.Fighting | PokemonTypes.Poison;
             Locations = new List<string> { "Route 1", "Route 66: Talk to Jessica -> Trade for Abra" };
+            Missable = true;
+            Legendary = true;
         }
 
         public string Name { get; set; }
@@ -41,6 +43,11 @@ namespace PokemonMVCApp.Models
                 return list;
             }
         }
+
+        public bool Legendary { get; set; }
+
+        public bool Missable { get; set; }
+
 
     }
 }
