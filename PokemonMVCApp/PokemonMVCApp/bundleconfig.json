@@ -8,7 +8,12 @@
       "wwwroot/css/site.css",
       "wwwroot/css/spritemap.css",
       "wwwroot/css/pokemon.css"
-    ]
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    "sourceMap": false
   },
   {
     "outputFileName": "wwwroot/js/site.min.js",
@@ -17,7 +22,7 @@
     ],
     // Optionally specify minification options
     "minify": {
-      "enabled": true,
+      "enabled": false,
       "renameLocals": true
     },
     // Optionally generate .map file

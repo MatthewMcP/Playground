@@ -7,6 +7,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
     <PackageReference Include="Bootstrap.Less" Version="3.3.7" />
+    <PackageReference Include="BundlerMinifier.Core" Version="2.6.362" />
   </ItemGroup>
 
   <ItemGroup>
