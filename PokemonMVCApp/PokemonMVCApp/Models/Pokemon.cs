@@ -9,11 +9,13 @@ namespace PokemonMVCApp.Models
         {
             Name = name;
             Id = id;
-            EvolutionDetails = "Evolves at 39 on a full moon at the middle of the street";
-            PokemonTypesEnum = PokemonTypes.Fighting | PokemonTypes.Poison;
-            Locations = new List<string> { "Route 1", "Route 66: Talk to Jessica -> Trade for Abra" };
             Missable = true;
             Legendary = true;
+            PokemonTypesEnum = PokemonTypes.Fighting | PokemonTypes.Poison;
+            EvolutionDetails = "Evolves at 39 on a full moon at the middle of the street";
+            Locations = new List<string> { "Route 1", "Route 66: Talk to Jessica -> Trade for Abra" };
+            Notes = new List<string> { "Can only be caught once" };
+
         }
 
         public string Name { get; set; }
@@ -21,11 +23,11 @@ namespace PokemonMVCApp.Models
         //Need to change
         public string Id { get; set; }
 
-        public string EvolutionDetails { get; set; }
+        public bool Legendary { get; set; }
 
-        public List<string> Locations { get; set; }
+        public bool Missable { get; set; }
 
-        private PokemonTypes PokemonTypesEnum { get; set; }
+        PokemonTypes PokemonTypesEnum { get; set; }
 
         public List<string> PokemonTypesList
         {
@@ -44,10 +46,10 @@ namespace PokemonMVCApp.Models
             }
         }
 
-        public bool Legendary { get; set; }
+        public string EvolutionDetails { get; set; }
 
-        public bool Missable { get; set; }
+        public List<string> Locations { get; set; }
 
-
+        public List<string> Notes { get; set; }
     }
 }
