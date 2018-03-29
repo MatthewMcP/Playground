@@ -10,15 +10,10 @@ namespace PokemonMVCApp.Controllers
         PokemonSearchViewModel ViewModel;
         public PokemonController()
         {
+            
             ViewModel = new PokemonSearchViewModel
             {
-                PokemonList = new List<Pokemon>
-                {
-                    new Pokemon("Dan", "1"),
-                    new Pokemon("Danny", "2"),
-                    new Pokemon("Daniel", "3"),
-                    new Pokemon("Daniella", "4")
-                }
+                PokemonList = HardcodedDataSource.GetPokemons()
             };
         }
 
@@ -27,15 +22,5 @@ namespace PokemonMVCApp.Controllers
         {
             return View(ViewModel);
         }
-
-        //public IActionResult SearchPokemonName(string name)
-        //{
-        //    return View(PokemonArray[2]);
-        //}
-
-        //public IActionResult SearchPokemonId(string id)
-        //{
-        //    return View(PokemonArray[3]);
-        //}
     }
 }

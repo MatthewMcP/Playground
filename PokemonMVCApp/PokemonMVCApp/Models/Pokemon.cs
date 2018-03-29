@@ -5,24 +5,29 @@ namespace PokemonMVCApp.Models
 {
     public class Pokemon
     {
-        public Pokemon(string name, string id)
+        public Pokemon(string name,
+                       string id,
+                       bool? missable,
+                       bool? legendary,
+                       PokemonTypes pokemontypes,
+                       string evolutionDetails,
+                       List<string> locations,
+                       List<string> notes)
         {
             Name = name;
             Id = id;
-            Missable = true;
-            Legendary = true;
-            PokemonTypesEnum = PokemonTypes.Fighting | PokemonTypes.Poison;
-            EvolutionDetails = "Evolves at 39 on a full moon at the middle of the street";
-            Locations = new List<string> { "Route 1", "Route 66: Talk to Jessica -> Trade for Abra" };
-            Notes = new List<string> { "Can only be caught once" };
-
+            Missable = missable.HasValue;
+            Legendary = legendary.HasValue;
+            PokemonTypesEnum = pokemontypes;
+            EvolutionDetails = evolutionDetails;
+            Locations = locations;
+            Notes = notes;
         }
 
         public string Name { get; set; }
 
         //Need to change
         public string Id { get; set; }
-
 
         public bool Legendary { get; set; }
 

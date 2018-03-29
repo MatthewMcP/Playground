@@ -10,6 +10,7 @@ namespace PokemonMVCApp.Models
         Water = 8,
         Flying = 16,
         Poison = 32,
-        Grass = 64
+        Grass = 64,
+        Bug = 128
     }
 }
