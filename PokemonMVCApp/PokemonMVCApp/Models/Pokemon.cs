@@ -37,7 +37,6 @@ namespace PokemonMVCApp.Models
             }
         }
 
-
         PokemonTypes PokemonTypesEnum { get; set; }
 
         public List<string> PokemonTypesList
@@ -51,7 +50,6 @@ namespace PokemonMVCApp.Models
                     {
                         list.Add(value.ToString());
                     }
-
                 }
                 return list;
             }

@@ -1,4 +1,7 @@
-﻿
-"use strict";
+﻿function pokeSearch(){
+    var options = {
+      valueNames: [ 'name', 'id']
+    };
 
-document.getElementById('div111').className='pk008';
+    var userList = new List('search-area', options);
+ }

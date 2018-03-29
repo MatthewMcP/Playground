@@ -9,19 +9,26 @@
 
     <h2 class="centre"> Type Below To Begin Search </h2>
     <span class="spacer_10"></span>
-    <div class="search-area centre">
-        <input id="search-input" type="text" placeholder="Type Here"/>
-    </div>
-    <span class="spacer_20"></span>
+    
+    <div id="search-area">
+        <div class="search search-area centre">
+            <input id="search-input" class="search search-input" type="text" placeholder="Type Here"/>
+        </div>
+        <span class="spacer_20"></span>
 
-    <div class="search-results">
-        <div>
-            @foreach (var pokemon in Model.PokemonList)
-            {
-                @Html.Partial("_Pokemon", pokemon)
-            }
+        <div class="search-results">
+                <ul class="list list-unstyled">
+                @foreach (var pokemon in Model.PokemonList)
+                {
+                   <li>
+                        @Html.Partial("_Pokemon", pokemon)
+                    </li>
+                }
+                </ul>
         </div>
     </div>
 </div>
 
-<link href="*.css" type="text/css" />
+<script>
+    pokeSearch();  
+</script>

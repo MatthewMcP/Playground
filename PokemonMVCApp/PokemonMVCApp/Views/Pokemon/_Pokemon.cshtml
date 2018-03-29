@@ -5,13 +5,13 @@
     <span class="spacer_5"></span>
 
     <div class="col-xs-2">
-        <p class="font_bold">@Model.Name</p>    
-
+        <p class="name font_bold">@Model.Name</p>    
         <!-- TODO: Dirty hack. Needs replaced -->
-        <img id="div111" class="pkm @Model.ImageClassName" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" >
+        <img class="pkm @Model.ImageClassName" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" >
     </div>
+    
     <div class="col-xs-10">
-            <div class="col-sm-2 col-xs-3">
+            <div class="id col-sm-2 col-xs-3">
                 <p>ID: @Model.Id</p>
             </div>
             <div class="col-sm-1 col-xs-2">
@@ -26,9 +26,9 @@
                         }
                         else
                         {
-                            <p>
-                                @Model.PokemonTypesList[0] / @Model.PokemonTypesList[1]    
-                            </p> 
+                        <p>
+                            @Model.PokemonTypesList[0] / @Model.PokemonTypesList[1]    
+                        </p> 
                         }
                 }
             </div>
