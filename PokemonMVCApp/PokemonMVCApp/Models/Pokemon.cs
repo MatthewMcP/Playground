@@ -23,9 +23,20 @@ namespace PokemonMVCApp.Models
         //Need to change
         public string Id { get; set; }
 
+
         public bool Legendary { get; set; }
 
         public bool Missable { get; set; }
+
+        public string ImageClassName
+        {
+            get
+            {
+                var temp = Id.PadLeft(3, '0');
+                return String.Concat("pkm", temp);
+            }
+        }
+
 
         PokemonTypes PokemonTypesEnum { get; set; }
 
