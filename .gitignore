@@ -9,6 +9,12 @@
 *.userosscache
 *.sln.docstates
 
+
+*/LoginDetails.cs
+DBConnection/DBConnection/LoginDetails.cs
+
+
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
