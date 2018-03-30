@@ -13,8 +13,8 @@ namespace DBConnection
             {
                 var cb = new SqlConnectionStringBuilder();
                 cb.DataSource = "matthewmcp-pokemon.database.windows.net";
-                cb.UserID = "matthewmcp";
-                cb.Password = ;
+                cb.UserID = LoginDetails.username;
+                cb.Password = LoginDetails.password;
                 cb.InitialCatalog = "PokemonV0.1";
 
                 using (var connection = new SqlConnection(cb.ConnectionString))
