@@ -16,8 +16,8 @@ namespace PokemonMVCApp.Models
         {
             Name = name;
             Id = id;
-            Missable = missable.HasValue;
-            Legendary = legendary.HasValue;
+            Missable = missable.HasValue && missable.Value;
+            Legendary = legendary.HasValue && legendary.Value;
             PokemonTypesEnum = pokemontypes;
             EvolutionDetails = evolutionDetails;
             Locations = locations;

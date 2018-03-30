@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <Folder Include="Views\Pokemon\" />
+    <Folder Include="Views\MattSexyPIcs\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="wwwroot\Styles\Pokemon.css" />

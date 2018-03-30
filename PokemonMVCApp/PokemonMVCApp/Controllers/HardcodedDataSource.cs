@@ -44,7 +44,7 @@ namespace PokemonMVCApp.Controllers
                             new List<string> { "Viridian Forest ", "Route 24"}, new List<string>{ "None"}),
                 new Pokemon("Beedrill", "15", null, null, PokemonTypes.Bug, "Does not evolve",
                             new List<string> { "Viridian Forest "}, new List<string>{ "None"}),
-                new Pokemon("Snorlax", "143", true, true, PokemonTypes.Normal, "Does not evolve",
+                new Pokemon("Snorlax", "143", true, null, PokemonTypes.Normal, "Does not evolve",
                             new List<string> { "Route 16", "Route 12"}, new List<string>{ "Need pokeflute to wake up"}),
                 new Pokemon("Mewtwo", "150", true, true, PokemonTypes.Normal, "Does not evolve",
                             new List<string> { "Unkown Dungeon"}, new List<string>{ "Must be caught with masterball"})
