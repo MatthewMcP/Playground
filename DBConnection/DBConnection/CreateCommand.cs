@@ -6,6 +6,8 @@
         public static string Build_2_Tsql_CreateTables()
         {
             return @"
+
+
 DROP TABLE IF EXISTS pokemons;
 DROP TABLE IF EXISTS pokemontypes;
 DROP TABLE IF EXISTS tabEmployee;
@@ -48,6 +50,9 @@ CREATE TABLE tabEmployee
    DepartmentCode  nchar(4)              null
       REFERENCES tabDepartment (DepartmentCode)  -- (REFERENCES would be disallowed on temporary tables.)
 );
+
+
+
 ";
         }
     }

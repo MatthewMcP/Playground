@@ -6,6 +6,8 @@ namespace DBConnection
         public static string Build_3_Tsql_Inserts()
         {
             return @"
+
+
 -- Pokemons
 INSERT INTO pokemons
    (NDexId, Name, Type, Legendary, Missible)
@@ -34,6 +36,7 @@ INSERT INTO tabEmployee
    ('Deborah' , 24, 'legl'),
    ('Elle'    , 15, null);
 ";
+            
         }
     }
 }
