@@ -6,11 +6,11 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using PokemonMVCApp.Models;
 
-namespace PokemonMVCApp.Controllers
+namespace PokemonMVCApp.DBConnections
 {
-    public static class HardcodedDataSource
+    public class HardcodedDataSource : IPokemonConnection
     {
-        public static List<Pokemon> GetPokemons()
+        public List<Pokemon> GetAllPokemon()
         {
             return new List<Pokemon>
                 {
