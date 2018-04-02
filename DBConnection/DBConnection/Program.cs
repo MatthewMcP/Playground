@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.SqlClient;
+using Dapper;
 
 namespace DBConnection
 {
@@ -39,6 +40,11 @@ namespace DBConnection
     */
 
                     Submit_6_Tsql_SelectEmployees(connection);
+
+                    //connection.Query<Dog>("select Age = @Age, Id = @Id", new { Age = (int?)null, Id = guid });
+
+                    var pokemons = connection.Query<pokemons>("select Name=@Name", new {Name = "name"});
+                    Console.WriteLine("Pokemons");
 
                 }
             }

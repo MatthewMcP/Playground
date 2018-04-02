@@ -12,9 +12,9 @@ namespace DBConnection
 INSERT INTO pokemons
    (NDexId, Name, Type, Legendary, Missible)
       VALUES
-   ('1', 'Bulbasaur', 'Type', 0, 0),
-   ('2', 'Ivysaur', 'Type', 0, 0),
-   ('3', 'Venesaur', 'Type', 0, 0);
+   ('24', 'Ekans', 'Type', 0, 0),
+   ('25', 'Pikachu', 'Type', 0, 0),
+   ('26', 'Raichu', 'Type', 0, 0);
 
 
 

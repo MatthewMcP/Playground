@@ -21,7 +21,6 @@ CREATE TABLE pokemons
     Type            nvarchar(128)     not null,
     Legendary       BIT               not null,
     Missible        BIT               not null
-    
 );
 
 
