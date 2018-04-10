@@ -18,8 +18,8 @@ namespace PokemonMVCApp.DBConnections
             //TODO: All of this
             var cb = new SqlConnectionStringBuilder();
             cb.DataSource = "matthewmcp-pokemon.database.windows.net";
-            cb.UserID = "matthewmcp";
-            cb.Password = @"irlLahsh?n89t";
+            cb.UserID = "userid";
+            cb.Password = @"password";
             cb.InitialCatalog = "PokemonV0.1";
 
             string pokemonDetails = "SELECT * FROM pokemons;";
