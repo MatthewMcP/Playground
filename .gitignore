@@ -12,8 +12,8 @@
 
 */LoginDetails.cs
 DBConnection/DBConnection/LoginDetails.cs
-
-
+*/DatabaseConnectionDetails.cs
+	PokemonMVCApp/PokemonMVCApp/DBConnection/DBConnection.cs
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs

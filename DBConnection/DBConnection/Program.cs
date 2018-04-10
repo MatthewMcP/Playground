@@ -14,8 +14,6 @@ namespace DBConnection
             try
             {
 
-
-
                 var cb = new SqlConnectionStringBuilder();
                 cb.DataSource = "matthewmcp-pokemon.database.windows.net";
                 cb.UserID = LoginDetails.username;
@@ -36,11 +34,9 @@ namespace DBConnection
                     /*Submit_Tsql_NonQuery(connection, "4 - Update-Join",
                        Build_4_Tsql_UpdateJoin(),
                        "@csharpParmDepartmentName", "Accounting");
-
                     Submit_Tsql_NonQuery(connection, "5 - Delete-Join",
                        Build_5_Tsql_DeleteJoin(),
                        "@csharpParmDepartmentName", "Legal");
-
     */
 
                     Submit_6_Tsql_SelectEmployees(connection);
@@ -59,6 +55,23 @@ namespace DBConnection
             Console.WriteLine("View the report output here, then press any key to end the program...");
             Console.ReadKey();
 
+        }
+
+        //Build_6_Tsql_SPokemons
+        static string Build_6_Tsql_SPokemons()
+        {
+            return @"
+-- Look at all the final Employees.
+SELECT
+      pokealias.Name,
+      pokealias.NDexId,
+      notedalias.Note
+   FROM
+        pokemons as pokealias
+      INNER JOIN
+      notes as notedalias 
+        ON pokealias.ID = notedalias.ID;
+";
         }
 
         static  string Build_6_Tsql_SelectEmployees()
@@ -122,11 +135,29 @@ SELECT
                     while (reader.Read())
                     {
                         Console.WriteLine("{0} , {1} , {2} , {3} , {4}",
-                           reader.GetGuid(0),
+                                          reader.GetGuid(0),
                            reader.GetString(1),
-                           reader.GetInt32(2),
+                                          reader.GetInt32(2),
                            (reader.IsDBNull(3)) ? "NULL" : reader.GetString(3),
                            (reader.IsDBNull(4)) ? "NULL" : reader.GetString(4));
+                    }
+                }
+            }
+
+
+            string ttsql = Build_6_Tsql_SPokemons();
+            Console.WriteLine("=================================");
+            Console.WriteLine("Now, Select Pokemons (7)...");
+            using (var command = new SqlCommand(ttsql, connection))
+            {
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Console.WriteLine("{0}, {1}, {2}",
+                                          reader.GetString(0),
+                                          reader.GetInt32(1),
+                                          reader.GetString(2));
                     }
                 }
             }

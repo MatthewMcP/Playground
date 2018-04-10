@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Remove="Controllers\MattSexyPics.cs" />
     <Compile Remove="Global.cs" />
+    <Compile Remove="Models\Notes.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Update="log4net.config">

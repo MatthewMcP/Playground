@@ -61,7 +61,7 @@ namespace PokemonMVCApp.Models
                     }
                 }
 
-                return new List<string> { "Viridian Forest" };
+                return new List<string> { "Electric" };
                 //return list;
             }
         }
@@ -82,10 +82,10 @@ namespace PokemonMVCApp.Models
             }
         }
 
-        public List<string> Notes
-        {
+        public List<string> Notes { get; set; }
+       /* {
             get { return new List<string> { "Viridian Forest Notes " }; }
 
-        }
+        }*/
     }
 }

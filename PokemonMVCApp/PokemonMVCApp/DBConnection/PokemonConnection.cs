@@ -9,26 +9,52 @@ namespace PokemonMVCApp.DBConnections
 {
     public class PokemonConnection : IPokemonConnection
     {
-
-
-
         public List<Pokemon> GetAllPokemon()
         {
             var pokemons = new List<Pokemon>();
             //TODO: All of this
             var cb = new SqlConnectionStringBuilder();
-            cb.DataSource = "matthewmcp-pokemon.database.windows.net";
-            cb.UserID = "matthewmcp";
-            cb.Password = @"irlLahsh?n89t";
-            cb.InitialCatalog = "PokemonV0.1";
+            cb.DataSource = DBConnection.DatabaseConnectionDetails.DataSource;
+            cb.UserID = DBConnection.DatabaseConnectionDetails.UserID;
+            cb.Password = DBConnection.DatabaseConnectionDetails.Password;
+            cb.InitialCatalog = DBConnection.DatabaseConnectionDetails.InitialCatalog;
 
-            string pokemonDetails = "SELECT * FROM pokemons;";
-
+            string pokemonDetails = @"
+                                        SELECT
+                                              p.ID,
+                                              p.NDexId,
+                                              p.Name,
+                                              p.Legendary,
+                                              p.Missable,   
+                                              n.Note
+                                         FROM
+                                              pokemons as p
+                                              LEFT JOIN
+                                              notes as n 
+                                                ON p.ID = n.ID
+                                        ORDER BY
+                                              p.NDexId ASC;
+                                        ";
             using (var connection = new SqlConnection(cb.ConnectionString))
             {
                 connection.Open();
 
-                pokemons = connection.Query<Pokemon>(pokemonDetails).ToList();
+                var pokemonDictionary = new Dictionary<Guid, Pokemon>();
+                pokemons = connection.Query<Pokemon, string, Pokemon>(pokemonDetails,
+                                                                     (pokemon, note) =>
+                {
+                    Pokemon pokemonEntry;
+
+                    if (!pokemonDictionary.TryGetValue(pokemon.Id, out pokemonEntry))
+                    {
+                        pokemonEntry = pokemon;
+                        pokemonEntry.Notes = new List<String>();
+                        pokemonDictionary.Add(pokemonEntry.Id, pokemonEntry);
+                    }
+
+                    pokemonEntry.Notes.Add(note);
+                    return pokemonEntry;
+                }, splitOn: "note").Distinct().ToList();
             }
 
             return pokemons;

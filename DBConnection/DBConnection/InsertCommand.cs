@@ -5,24 +5,29 @@ namespace DBConnection
     {
         public static string Build_3_Tsql_Inserts()
         {
-            return @"
+
+            var guid1 = Guid.NewGuid();
+            var guid2 = Guid.NewGuid();
+            var guid3 = Guid.NewGuid();
+            var message = @"
 
 
 -- Pokemons
 INSERT INTO pokemons
-   (NDexId, Name, Type, Legendary, Missible)
+   (ID, NDexId, Name, Type, Legendary, Missable)
       VALUES
-   ('24', 'Ekans', 'Type', 0, 0),
-   ('25', 'Pikachu', 'Type', 0, 0),
-   ('26', 'Raichu', 'Type', 1, 0);
+   ('{0}', '24', 'Ekans', 'Type', 0, 0),
+   ('{1}', '25', 'Pikachu', 'Type', 0, 1),
+   ('{2}', '26', 'Raichu', 'Type', 1, 0);
 
 
-INSERT INTO pokemons
-   (NDexId, Name, Type, Legendary, Missible)
+
+INSERT INTO notes
+   (ID, Note)
       VALUES
-   ('24', 'Ekans', 'Type', 0, 0),
-   ('25', 'Pikachu', 'Type', 0, 0),
-   ('26', 'Raichu', 'Type', 1, 0);
+   ('{0}', 'Found in PalletTown'),
+   ('{0}', 'Only in Pokemon Blue'),
+   ('{1}', 'Must be caught using Masterball');
 
 -- The company has these departments.
 INSERT INTO tabDepartment
@@ -42,7 +47,9 @@ INSERT INTO tabEmployee
    ('Deborah' , 24, 'legl'),
    ('Elle'    , 15, null);
 ";
-            
+
+
+            return string.Format(message, guid1, guid2, guid3);
         }
     }
 }
