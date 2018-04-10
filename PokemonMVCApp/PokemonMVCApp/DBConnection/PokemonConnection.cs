@@ -35,6 +35,8 @@ namespace PokemonMVCApp.DBConnections
                                         ORDER BY
                                               p.NDexId ASC;
                                         ";
+
+
             using (var connection = new SqlConnection(cb.ConnectionString))
             {
                 connection.Open();
