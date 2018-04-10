@@ -5,8 +5,12 @@ namespace PokemonMVCApp.Models
 {
     public class Pokemon
     {
+        public Pokemon()
+        {
+        }
+
         public Pokemon(string name,
-                       string id,
+                       int ndexid,
                        bool? missable,
                        bool? legendary,
                        PokemonTypes pokemontypes,
@@ -15,29 +19,29 @@ namespace PokemonMVCApp.Models
                        List<string> notes)
         {
             Name = name;
-            Id = id;
+            Id = new Guid();
+            NDexId = ndexid;
             Missable = missable.HasValue && missable.Value;
             Legendary = legendary.HasValue && legendary.Value;
             PokemonTypesEnum = pokemontypes;
-            EvolutionDetails = evolutionDetails;
-            Locations = locations;
-            Notes = notes;
+            //EvolutionDetails = evolutionDetails;
+            //Locations = locations;
+            //Notes = notes;
         }
 
+        public Guid Id { get; set; }
+        public int NDexId { get; set; }
+
         public string Name { get; set; }
-
-        //Need to change
-        public string Id { get; set; }
-
+        public string Type { get; set; }
         public bool Legendary { get; set; }
-
         public bool Missable { get; set; }
 
         public string ImageClassName
         {
             get
             {
-                var temp = Id.PadLeft(3, '0');
+                var temp = NDexId.ToString().PadLeft(3, '0');
                 return String.Concat("pkm", temp);
             }
         }
@@ -56,14 +60,32 @@ namespace PokemonMVCApp.Models
                         list.Add(value.ToString());
                     }
                 }
-                return list;
+
+                return new List<string> { "Viridian Forest" };
+                //return list;
             }
         }
 
-        public string EvolutionDetails { get; set; }
+        public string EvolutionDetails
+        {
+            get
+            {
+                return "Evolves at Level 10";
+            }
+        }
 
-        public List<string> Locations { get; set; }
+        public List<string> Locations
+        {
+            get
+            {
+                return new List<string> { "Viridian Forest " };
+            }
+        }
 
-        public List<string> Notes { get; set; }
+        public List<string> Notes
+        {
+            get { return new List<string> { "Viridian Forest Notes " }; }
+
+        }
     }
 }

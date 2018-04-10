@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
@@ -9,6 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using PokemonMVCApp.DBConnections;
+using PokemonMVCApp.Logger;
 
 namespace PokemonMVCApp
 {
@@ -29,10 +27,13 @@ namespace PokemonMVCApp
             services.AddMvc();
 
             var builder = new ContainerBuilder();
+
             builder.RegisterModule<AutofacModule>();
+            builder.RegisterType<Log4NetLogger>().As<ILogger>();
 
 
-            builder.RegisterType<HardcodedDataSource>().As<IPokemonConnection>();
+            //builder.RegisterType<HardcodedDataSource>().As<IPokemonConnection>();
+            builder.RegisterType<PokemonConnection>().As<IPokemonConnection>();
 
 
             builder.Populate(services);

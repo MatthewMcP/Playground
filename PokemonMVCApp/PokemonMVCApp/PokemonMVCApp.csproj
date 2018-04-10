@@ -25,6 +25,7 @@
     <Folder Include="Views\Pokemon\" />
     <Folder Include="DBConnection\" />
     <Folder Include="Interfaces\" />
+    <Folder Include="Logger\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="wwwroot\Styles\Pokemon.css" />
@@ -44,5 +45,10 @@
   <ItemGroup>
     <Compile Remove="Controllers\MattSexyPics.cs" />
     <Compile Remove="Global.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="log4net.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>

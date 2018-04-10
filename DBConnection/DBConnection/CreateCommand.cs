@@ -20,18 +20,18 @@ CREATE TABLE pokemons
     Name            nvarchar(128)     not null,
     Type            nvarchar(128)     not null,
     Legendary       BIT               not null,
-    Missible        BIT               not null
+    Missible        BIT               not null,
 );
 
 
-CREATE TABLE pokemontypes
+CREATE TABLE notes
 (
-   DepartmentCode  nchar(4)          not null
-      PRIMARY KEY,
-   DepartmentName  nvarchar(128)     not null,
-   DepoooNaes    nvarchar(128)     not null,
-
+   Id           uniqueidentifier    not null default NewId() PRIMARY KEY,
+   Note         nvarchar(128)       not null,
+   PokeId       uniqueidentifier    not null,
+        REFERENCES pokemons (ID)
 );
+
 
 CREATE TABLE tabDepartment
 (
@@ -52,7 +52,27 @@ CREATE TABLE tabEmployee
 
 
 
+
+
+
+
+
+CREATE TABLE locations
+(
+   ID           uniqueidentifier    not null default NewId() PRIMARY KEY,
+   Name         nvarchar(128)       not null,
+   Code         nvarchar(128)       not null,
+   Region       nvarchar(128)       not null,
+);
+
+CREATE TABLE pokemons_locations
+(
+   PokemonID          uniqueidentifier    not null,
+   LocationID         uniqueidentifier    not null,
+);
+
 ";
+            
         }
     }
 }

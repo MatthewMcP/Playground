@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using PokemonMVCApp.DBConnections;
 using PokemonMVCApp.Models;
 
 namespace PokemonMVCApp.Controllers
@@ -8,12 +9,12 @@ namespace PokemonMVCApp.Controllers
     {
 
         PokemonSearchViewModel ViewModel;
-        public PokemonController()
+        public PokemonController(IPokemonConnection pokemonConnection)
         {
-            
+
             ViewModel = new PokemonSearchViewModel
             {
-                PokemonList = HardcodedDataSource.GetPokemons()
+                PokemonList = pokemonConnection.GetAllPokemon()
             };
         }
 

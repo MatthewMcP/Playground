@@ -14,9 +14,15 @@ INSERT INTO pokemons
       VALUES
    ('24', 'Ekans', 'Type', 0, 0),
    ('25', 'Pikachu', 'Type', 0, 0),
-   ('26', 'Raichu', 'Type', 0, 0);
+   ('26', 'Raichu', 'Type', 1, 0);
 
 
+INSERT INTO pokemons
+   (NDexId, Name, Type, Legendary, Missible)
+      VALUES
+   ('24', 'Ekans', 'Type', 0, 0),
+   ('25', 'Pikachu', 'Type', 0, 0),
+   ('26', 'Raichu', 'Type', 1, 0);
 
 -- The company has these departments.
 INSERT INTO tabDepartment

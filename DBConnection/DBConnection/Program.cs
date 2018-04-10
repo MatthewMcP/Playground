@@ -6,12 +6,16 @@ namespace DBConnection
 {
     class Program
     {
+
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
 
             try
             {
+
+
+
                 var cb = new SqlConnectionStringBuilder();
                 cb.DataSource = "matthewmcp-pokemon.database.windows.net";
                 cb.UserID = LoginDetails.username;
