@@ -61,16 +61,18 @@ namespace DBConnection
         static string Build_6_Tsql_SPokemons()
         {
             return @"
--- Look at all the final Employees.
 SELECT
       pokealias.Name,
       pokealias.NDexId,
+      locations.Name,
       notedalias.Note
    FROM
         pokemons as pokealias
-      INNER JOIN
-      notes as notedalias 
-        ON pokealias.ID = notedalias.ID;
+      INNER JOIN         notes as notedalias          ON pokealias.ID = notedalias.ID
+    LEFT OUTER JOIN pokemons_locations
+        ON pokealias.ID = pokemons_locations.PokemonID
+    LEFT OUTER JOIN locations
+        ON pokemons_locations.LocationID = locations.ID
 ";
         }
 
@@ -154,10 +156,11 @@ SELECT
                 {
                     while (reader.Read())
                     {
-                        Console.WriteLine("{0}, {1}, {2}",
-                                          reader.GetString(0),
-                                          reader.GetInt32(1),
-                                          reader.GetString(2));
+                        Console.WriteLine("{0}, {1}, {2}, {3}",
+                                          (reader.IsDBNull(0)) ? "NULL" : reader.GetString(0),
+                                          (reader.IsDBNull(1)) ? 123 : reader.GetInt32(1),
+                                          (reader.IsDBNull(2)) ? "NULL" : reader.GetString(2),
+                                          (reader.IsDBNull(3)) ? "NULL" : reader.GetString(3));
                     }
                 }
             }

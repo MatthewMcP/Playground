@@ -26,7 +26,7 @@ namespace PokemonMVCApp.Models
             PokemonTypesEnum = pokemontypes;
             //EvolutionDetails = evolutionDetails;
             //Locations = locations;
-            //Notes = notes;
+            Notes = notes;
         }
 
         public Guid Id { get; set; }
@@ -74,18 +74,36 @@ namespace PokemonMVCApp.Models
             }
         }
 
-        public List<string> Locations
+
+
+        public List<string> Locations { get; set; }
+
+        public List<string> Notes { get; set; }
+
+
+        public void AddNote(string noteText)
         {
-            get
+            if (Notes == null)
             {
-                return new List<string> { "Viridian Forest " };
+                Notes = new List<string> { noteText };
+            }
+            else
+            {
+                Notes.Add(noteText);
             }
         }
 
-        public List<string> Notes { get; set; }
-       /* {
-            get { return new List<string> { "Viridian Forest Notes " }; }
 
-        }*/
+        public void AddLocations(string locationText)
+        {
+            if (Locations == null)
+            {
+                Locations = new List<string> { locationText };
+            }
+            else
+            {
+                Locations.Add(locationText);
+            }
+        }
     }
 }

@@ -9,6 +9,9 @@ namespace DBConnection
             var guid1 = Guid.NewGuid();
             var guid2 = Guid.NewGuid();
             var guid3 = Guid.NewGuid();
+            var guid11 = Guid.NewGuid();
+            var guid12 = Guid.NewGuid();
+            var guid13 = Guid.NewGuid();
             var message = @"
 
 
@@ -20,14 +23,26 @@ INSERT INTO pokemons
    ('{1}', '25', 'Pikachu', 'Type', 0, 1),
    ('{2}', '26', 'Raichu', 'Type', 1, 0);
 
-
-
 INSERT INTO notes
    (ID, Note)
       VALUES
    ('{0}', 'Found in PalletTown'),
    ('{0}', 'Only in Pokemon Blue'),
    ('{1}', 'Must be caught using Masterball');
+
+INSERT INTO locations
+   (ID, Name, Code, Region)
+      VALUES
+   ('{2}', 'Route 001', 'R.001', 'Kanto'),
+   ('{3}', 'Route 420', 'R.420', 'Kanto'),
+   ('{4}', 'Route 069', 'R.069', 'Kanto');
+
+INSERT INTO pokemons_locations
+   (PokemonID, LocationID)
+      VALUES
+   ('{0}', '{3}'),
+   ('{0}', '{4}'),
+   ('{1}', '{3}');
 
 -- The company has these departments.
 INSERT INTO tabDepartment
@@ -49,7 +64,7 @@ INSERT INTO tabEmployee
 ";
 
 
-            return string.Format(message, guid1, guid2, guid3);
+            return string.Format(message, guid1, guid2, guid3, guid11, guid12, guid13);
         }
     }
 }

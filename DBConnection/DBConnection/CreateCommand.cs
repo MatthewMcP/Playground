@@ -7,9 +7,12 @@
         {
             
             return @"
+DROP TABLE IF EXISTS pokemons_locations;
+DROP TABLE IF EXISTS locations;
 
 DROP TABLE IF EXISTS notes;
 DROP TABLE IF EXISTS pokemons;
+
 
 DROP TABLE IF EXISTS tabEmployee;
 DROP TABLE IF EXISTS tabDepartment;  -- Drop parent table last.
@@ -31,6 +34,24 @@ CREATE TABLE notes
    Note         nvarchar(128)       not null,
    ID           uniqueidentifier    null
                 REFERENCES pokemons (ID)
+);
+
+
+CREATE TABLE locations
+(
+   ID           uniqueidentifier    not null default NewId() PRIMARY KEY,
+   Name         nvarchar(128)       not null,
+   Code         nvarchar(128)       not null,
+   Region       nvarchar(128)       not null
+);
+
+CREATE TABLE    pokemons_locations
+(
+   Pokemon_LocationID   uniqueidentifier    not null default NewId() PRIMARY KEY,
+   PokemonID            uniqueidentifier    not null
+                        REFERENCES pokemons (ID),
+   LocationID           uniqueidentifier    not null
+                        REFERENCES locations (ID)
 );
 
 
