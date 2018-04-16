@@ -65,7 +65,7 @@ SELECT
       pokealias.Name,
       pokealias.NDexId,
       locations.Name,
-      notedalias.Note
+      notedalias.NoteText
    FROM
         pokemons as pokealias
       INNER JOIN         notes as notedalias          ON pokealias.ID = notedalias.ID

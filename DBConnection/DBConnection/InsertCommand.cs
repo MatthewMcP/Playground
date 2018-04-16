@@ -24,7 +24,7 @@ INSERT INTO pokemons
    ('{2}', '26', 'Raichu', 'Type', 1, 0);
 
 INSERT INTO notes
-   (ID, Note)
+   (ID, NoteText)
       VALUES
    ('{0}', 'Found in PalletTown'),
    ('{0}', 'Only in Pokemon Blue'),

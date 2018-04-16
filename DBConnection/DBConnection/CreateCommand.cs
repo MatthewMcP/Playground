@@ -31,7 +31,7 @@ CREATE TABLE pokemons
 CREATE TABLE notes
 (
    NoteID       uniqueidentifier    not null default NewId() PRIMARY KEY,
-   Note         nvarchar(128)       not null,
+   NoteText         nvarchar(128)       not null,
    ID           uniqueidentifier    null
                 REFERENCES pokemons (ID)
 );

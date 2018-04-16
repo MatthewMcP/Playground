@@ -62,7 +62,6 @@ namespace PokemonMVCApp.Models
                 }
 
                 return new List<string> { "Electric" };
-                //return list;
             }
         }
 

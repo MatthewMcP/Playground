@@ -27,8 +27,10 @@ namespace PokemonMVCApp.DBConnections
                                               p.Name,
                                               p.Legendary,
                                               p.Missable,   
-                                              n.Note,
-                                              locations.Name
+                                              n.NoteId,
+                                              n.NoteText,
+                                              locations.Name,
+                                              locations.Region
                                          FROM
                                               pokemons as p
                                               LEFT JOIN
@@ -39,54 +41,53 @@ namespace PokemonMVCApp.DBConnections
                                               p.NDexId ASC;
                                         ";
 
+
             using (var connection = new SqlConnection(cb.ConnectionString))
             {
                 connection.Open();
-
-                var results = connection.QueryMultiple(@"Select
-                                                          p.ID,
-                                                          p.NDexId,
-                                                          p.Name,
-                                                          p.Legendary,
-                                                          p.Missable from pokemons as p; 
-                                                select * from notes; 
-                                                select * from locations;
-                                                select * from pokemons_locations");
-                var notes = results.Read<Notedd>();
-                var pokemons = results.Read<Pokemon>();
-                var locations = results.Read<Location>();
-                var pokeLocations = results.Read<PokemonLocations>();
+                var noteDictionary = new Dictionary<Guid, Pokemon>();
+                var locDictionary = new Dictionary<Guid, Pokemon>();
 
 
-                foreach (Pokemon poke in pokemons)
-                {
-                    foreach (Notedd note in notes)
-                    {
-                        if (note.Id == poke.Id)
-                        {
-                            poke.AddNote(note.Note);
-                        }
-                    }
+                allPokemon = connection.Query<Pokemon, string, string, Pokemon>(pokemonDetails,
+                                                                                (pokemon, NoteText, LocationName) =>
+                                                                     {
+                                                                         Pokemon pokemonEntry;
+                                                                         // if note dictioanry doesn't contain pokemon id. Add pokemon id to dict. 
+                                                                         if (!noteDictionary.TryGetValue(pokemon.Id, out pokemonEntry))
+                                                                         {
+                                                                             pokemonEntry = pokemon;
+                                                                             pokemonEntry.Notes = new List<String>();
+                                                                             noteDictionary.Add(pokemon.Id, pokemonEntry);
+                                                                         }
+                                                                         //TODO Find a better way
+                                                                         if (!pokemonEntry.Notes.Contains(NoteText))
+                                                                         {
+                                                                             pokemonEntry.Notes.Add(NoteText);
+                                                                         }
 
-                    foreach (PokemonLocations pokelocation in pokeLocations)
-                    {
-                        if (pokelocation.PokemonID == poke.Id)
-                        {
-                            foreach (Location loc in locations)
-                            {
-                                if (pokelocation.LocationID == loc.Id)
-                                {
-                                    poke.AddLocations(loc.Name);
-                                }
-                            }
-                        }
-                    }
 
-                    allPokemon.Add(poke);
-                }
+                                                                         if (!locDictionary.TryGetValue(pokemon.Id, out pokemonEntry))
+                                                                         {
+                                                                             pokemonEntry = pokemon;
+                                                                             pokemonEntry.Locations = new List<String>();
+                                                                             locDictionary.Add(pokemon.Id, pokemonEntry);
+                                                                         }
+                                                                         //TODO Find a better way
+                                                                         if (!pokemonEntry.Locations.Contains(LocationName))
+                                                                         {
+                                                                             pokemonEntry.Locations.Add(LocationName);
+                                                                         }
+
+
+                                                                         return pokemonEntry;
+
+                                                                     }, splitOn: "Name,NoteText,Name").Distinct().ToList();
+
+
+
+                return allPokemon;
             }
-
-            return allPokemon;
         }
     }
 }
