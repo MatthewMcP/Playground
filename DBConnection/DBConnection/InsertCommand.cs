@@ -17,11 +17,11 @@ namespace DBConnection
 
 -- Pokemons
 INSERT INTO pokemons
-   (ID, NDexId, Name, Type, Legendary, Missable)
+   (ID, NDexId, Name, Type, Legendary, Missable, Type1, Type2)
       VALUES
-   ('{0}', '24', 'Ekans', 'Type', 0, 0),
-   ('{1}', '25', 'Pikachu', 'Type', 0, 1),
-   ('{2}', '26', 'Raichu', 'Type', 1, 0);
+   ('{0}', '24', 'Ekans', 'Type', 0, 0, 'Normal', 'Snake'),
+   ('{1}', '25', 'Pikachu', 'Type', 0, 1, 'Electric', 'RATBOY'),
+   ('{2}', '26', 'Raichu', 'Type', 1, 0, 'Electric', null);
 
 INSERT INTO notes
    (ID, NoteText)

@@ -27,6 +27,8 @@ namespace PokemonMVCApp.DBConnections
                                               p.Name,
                                               p.Legendary,
                                               p.Missable,   
+                                              p.Type1,   
+                                              p.Type2,   
                                               n.NoteId,
                                               n.NoteText,
                                               locations.Name,

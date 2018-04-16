@@ -48,6 +48,10 @@ namespace PokemonMVCApp.Models
 
         PokemonTypes PokemonTypesEnum { get; set; }
 
+
+        public string Type1 { get; set; }
+        public string Type2 { get; set; }
+
         public List<string> PokemonTypesList
         {
             get
@@ -60,8 +64,12 @@ namespace PokemonMVCApp.Models
                         list.Add(value.ToString());
                     }
                 }
+                if (String.IsNullOrWhiteSpace(Type2))
+                {
+                    return new List<string> { Type1 };
 
-                return new List<string> { "Electric" };
+                }
+                return new List<string> { Type1,  Type2 };
             }
         }
 

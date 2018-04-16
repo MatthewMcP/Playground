@@ -26,6 +26,8 @@ CREATE TABLE pokemons
     Type            nvarchar(128)     not null,
     Legendary       BIT               not null,
     Missable        BIT               not null,
+    Type1            nvarchar(128)     not null,
+    Type2            nvarchar(128)      null,
 );
 
 CREATE TABLE notes
