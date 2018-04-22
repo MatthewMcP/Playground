@@ -34,11 +34,11 @@
                     }
                 </div>
                 <div class="col-sm-2 col-xs-2">
-                    @if (Model.Missable)
+                    @if (Model.IsMissable)
                     {
                         <i title="This pokemon is missable" class="fas fa-exclamation-triangle" data-toggle="tooltip" data-placement="bottom"></i>
                     }
-                    @if (Model.Legendary)
+                    @if (Model.IsLegendary)
                     {
                         <i title="This pokemon is legendary" class="fas fa-star" data-toggle="tooltip" data-placement="bottom"></i>
                     }

@@ -21,11 +21,12 @@ namespace PokemonMVCApp.Models
             Name = name;
             Id = new Guid();
             NDexId = ndexid;
-            Missable = missable.HasValue && missable.Value;
-            Legendary = legendary.HasValue && legendary.Value;
-            PokemonTypesEnum = pokemontypes;
-            //EvolutionDetails = evolutionDetails;
-            //Locations = locations;
+            IsLegendary = legendary.HasValue && legendary.Value;
+            IsMissable = missable.HasValue && missable.Value;
+
+            //PokemonTypesEnum = pokemontypes;
+            Evolutions = new List<string> { evolutionDetails };
+            Locations = locations;
             Notes = notes;
         }
 
@@ -34,36 +35,26 @@ namespace PokemonMVCApp.Models
 
         public string Name { get; set; }
         public string Type { get; set; }
-        public bool Legendary { get; set; }
-        public bool Missable { get; set; }
-
-        public string ImageClassName
-        {
-            get
-            {
-                var temp = NDexId.ToString().PadLeft(3, '0');
-                return String.Concat("pkm", temp);
-            }
-        }
-
-        PokemonTypes PokemonTypesEnum { get; set; }
-
+        public bool IsLegendary { get; set; }
+        public bool IsMissable { get; set; }
 
         public string Type1 { get; set; }
         public string Type2 { get; set; }
 
+        // TODO PokemonTypes PokemonTypesEnum { get; set; }         
         public List<string> PokemonTypesList
         {
             get
             {
-                List<string> list = new List<string>();
+                /*TODO
+                 * List<string> list = new List<string>();
                 foreach (Enum value in Enum.GetValues(PokemonTypesEnum.GetType()))
                 {
                     if (PokemonTypesEnum.HasFlag(value))
                     {
                         list.Add(value.ToString());
                     }
-                }
+                }*/
 
                 if (String.IsNullOrWhiteSpace(Type2))
                 {
@@ -80,29 +71,12 @@ namespace PokemonMVCApp.Models
 
         public List<string> Notes { get; set; }
 
-
-        public void AddNote(string noteText)
+        public string ImageClassName
         {
-            if (Notes == null)
+            get
             {
-                Notes = new List<string> { noteText };
-            }
-            else
-            {
-                Notes.Add(noteText);
-            }
-        }
-
-
-        public void AddLocations(string locationText)
-        {
-            if (Locations == null)
-            {
-                Locations = new List<string> { locationText };
-            }
-            else
-            {
-                Locations.Add(locationText);
+                var temp = NDexId.ToString().PadLeft(3, '0');
+                return String.Concat("pkm", temp);
             }
         }
     }

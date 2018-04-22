@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using Microsoft.AspNetCore.Mvc;
-using PokemonMVCApp.DBConnections;
+﻿using Microsoft.AspNetCore.Mvc;
 using PokemonMVCApp.Models;
 
 namespace PokemonMVCApp.Controllers
@@ -18,7 +16,6 @@ namespace PokemonMVCApp.Controllers
             };
         }
 
-        // GET: /<controller>/
         public IActionResult Index()
         {
             return View(ViewModel);

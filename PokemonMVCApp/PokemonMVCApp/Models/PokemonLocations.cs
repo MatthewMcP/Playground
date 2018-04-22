@@ -6,6 +6,5 @@ namespace PokemonMVCApp.Models
         public Guid PokemonID { get; set; }
 
         public Guid LocationID { get; set; }
-
     }
 }

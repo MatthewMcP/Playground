@@ -24,7 +24,6 @@
   <ItemGroup>
     <Folder Include="Views\Pokemon\" />
     <Folder Include="DBConnection\" />
-    <Folder Include="Interfaces\" />
     <Folder Include="Logger\" />
   </ItemGroup>
   <ItemGroup>
