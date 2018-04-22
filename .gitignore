@@ -13,7 +13,7 @@
 */LoginDetails.cs
 DBConnection/DBConnection/LoginDetails.cs
 */DatabaseConnectionDetails.cs
-PokemonMVCApp/PokemonMVCApp/DBConnection/DBConnection.cs
+PokemonMVCApp/PokemonMVCApp/DBConnection/DatabaseConnectionDetails.cs
 
 
 
