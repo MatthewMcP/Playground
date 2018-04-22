@@ -29,11 +29,10 @@ namespace PokemonMVCApp.DBConnections
                                               p.Missable,   
                                               p.Type1,   
                                               p.Type2,   
-                                              n.NoteId,
                                               n.NoteText,
-                                              e.EvolutionText,
                                               locations.Name,
-                                              locations.Region
+                                              locations.Region,
+                                              e.EvolutionText
                                          FROM
                                               pokemons as p
                                               LEFT JOIN
@@ -101,7 +100,7 @@ namespace PokemonMVCApp.DBConnections
 
                                                                          return pokemonEntry;
 
-                }, splitOn: "Name, NoteText, EvolutionText").Distinct().ToList();
+                }, splitOn: "NoteText, Name, EvolutionText ").Distinct().ToList();
 
 
 
