@@ -64,24 +64,17 @@ namespace PokemonMVCApp.Models
                         list.Add(value.ToString());
                     }
                 }
+
                 if (String.IsNullOrWhiteSpace(Type2))
                 {
                     return new List<string> { Type1 };
-
                 }
-                return new List<string> { Type1,  Type2 };
-            }
-        }
-
-        public string EvolutionDetails
-        {
-            get
-            {
-                return "Evolves at Level 10";
+                return new List<string> { Type1, Type2 };
             }
         }
 
 
+        public List<string> Evolutions { get; set; }
 
         public List<string> Locations { get; set; }
 

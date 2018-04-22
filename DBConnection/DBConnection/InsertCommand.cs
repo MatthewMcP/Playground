@@ -20,8 +20,16 @@ INSERT INTO pokemons
    (ID, NDexId, Name, Type, Legendary, Missable, Type1, Type2)
       VALUES
    ('{0}', '24', 'Ekans', 'Type', 0, 0, 'Normal', 'Snake'),
-   ('{1}', '25', 'Pikachu', 'Type', 0, 1, 'Electric', 'RATBOY'),
+   ('{1}', '25', 'Pikachu', 'Type', 0, 1, 'Electric', 'Normal'),
    ('{2}', '26', 'Raichu', 'Type', 1, 0, 'Electric', null);
+
+INSERT INTO evolutions
+   (ID, EvolutionText)
+      VALUES
+   ('{0}', 'Evolves at 16 to IvySaur'),
+   ('{0}', 'Must be wearing Blue to Evolve'),
+   ('{1}', 'Evolves at 4000 Steps');
+
 
 INSERT INTO notes
    (ID, NoteText)
@@ -34,8 +42,8 @@ INSERT INTO locations
    (ID, Name, Code, Region)
       VALUES
    ('{2}', 'Route 001', 'R.001', 'Kanto'),
-   ('{3}', 'Route 420', 'R.420', 'Kanto'),
-   ('{4}', 'Route 069', 'R.069', 'Kanto');
+   ('{3}', 'Route 020', 'R.020', 'Kanto'),
+   ('{4}', 'Route 066', 'R.066', 'Kanto');
 
 INSERT INTO pokemons_locations
    (PokemonID, LocationID)

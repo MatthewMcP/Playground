@@ -31,13 +31,17 @@ namespace PokemonMVCApp.DBConnections
                                               p.Type2,   
                                               n.NoteId,
                                               n.NoteText,
+                                              e.EvolutionText,
                                               locations.Name,
                                               locations.Region
                                          FROM
                                               pokemons as p
                                               LEFT JOIN
-                                              notes as n 
+                                                notes as n
                                                 ON p.ID = n.ID
+                                              LEFT JOIN
+                                                evolutions as e
+                                                ON p.ID = e.ID
                                               LEFT OUTER JOIN pokemons_locations                                                     ON p.ID = pokemons_locations.PokemonID                                               LEFT OUTER JOIN locations                                                     ON pokemons_locations.LocationID = locations.ID
                                         ORDER BY
                                               p.NDexId ASC;
@@ -49,13 +53,13 @@ namespace PokemonMVCApp.DBConnections
                 connection.Open();
                 var noteDictionary = new Dictionary<Guid, Pokemon>();
                 var locDictionary = new Dictionary<Guid, Pokemon>();
+                var evoDictionary = new Dictionary<Guid, Pokemon>();
 
-
-                allPokemon = connection.Query<Pokemon, string, string, Pokemon>(pokemonDetails,
-                                                                                (pokemon, NoteText, LocationName) =>
+                allPokemon = connection.Query<Pokemon, string, string, string, Pokemon>(pokemonDetails,
+                                                                                       (pokemon, NoteText, LocationName, EvolutionText) =>
                                                                      {
                                                                          Pokemon pokemonEntry;
-                                                                         // if note dictioanry doesn't contain pokemon id. Add pokemon id to dict. 
+
                                                                          if (!noteDictionary.TryGetValue(pokemon.Id, out pokemonEntry))
                                                                          {
                                                                              pokemonEntry = pokemon;
@@ -82,9 +86,22 @@ namespace PokemonMVCApp.DBConnections
                                                                          }
 
 
+                                                                         if (!evoDictionary.TryGetValue(pokemon.Id, out pokemonEntry))
+                                                                         {
+                                                                             pokemonEntry = pokemon;
+                                                                             pokemonEntry.Evolutions = new List<String>();
+                                                                             evoDictionary.Add(pokemon.Id, pokemonEntry);
+                                                                         }
+                                                                         //TODO Find a better way
+                                                                         if (!pokemonEntry.Evolutions.Contains(EvolutionText))
+                                                                         {
+                                                                             pokemonEntry.Evolutions.Add(EvolutionText);
+                                                                         }
+
+
                                                                          return pokemonEntry;
 
-                                                                     }, splitOn: "Name,NoteText,Name").Distinct().ToList();
+                }, splitOn: "Name, NoteText, EvolutionText").Distinct().ToList();
 
 
 

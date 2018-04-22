@@ -9,6 +9,7 @@
             return @"
 DROP TABLE IF EXISTS pokemons_locations;
 DROP TABLE IF EXISTS locations;
+DROP TABLE IF EXISTS evolutions;
 
 DROP TABLE IF EXISTS notes;
 DROP TABLE IF EXISTS pokemons;
@@ -34,6 +35,14 @@ CREATE TABLE notes
 (
    NoteID       uniqueidentifier    not null default NewId() PRIMARY KEY,
    NoteText         nvarchar(128)       not null,
+   ID           uniqueidentifier    null
+                REFERENCES pokemons (ID)
+);
+
+CREATE TABLE evolutions
+(
+   EvolutionID       uniqueidentifier    not null default NewId() PRIMARY KEY,
+   EvolutionText     nvarchar(128)       not null,
    ID           uniqueidentifier    null
                 REFERENCES pokemons (ID)
 );

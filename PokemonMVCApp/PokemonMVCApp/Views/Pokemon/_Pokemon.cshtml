@@ -50,7 +50,13 @@
                 <p>Evolution:</p>    
             </div>
             <div class="col-sm-10 col-xs-8">
-                <p>@Model.EvolutionDetails</p>    
+
+               <ul>
+                @foreach(var evolution in Model.Evolutions)
+                {
+                      <li>@evolution</li>
+                }
+                </ul>  
             </div>
         </div>
         <div class="row">
