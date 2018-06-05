@@ -19,7 +19,11 @@ namespace DBConnection
 INSERT INTO pokemons
    (ID, NDexId, Name, Type, Legendary, Missable, Type1, Type2)
       VALUES
-   ('{0}', '24', 'Ekans', 'Type', 0, 0, 'Normal', 'Snake'),
+   ('{0}', '1', 'Bulbasaur', 'Type', 0, 0, 'Grass', 'Poison'),
+   ('{0}', '2', 'Ivysaur', 'Type', 0, 0, 'Grass', 'Poison'),
+   ('{0}', '3', 'Venusaur', 'Type', 0, 0, 'Grass', 'Poison'),
+   ('{0}', '4', 'Charmander', 'Type', 0, 0, 'Fire', null),
+
    ('{1}', '25', 'Pikachu', 'Type', 0, 1, 'Electric', 'Normal'),
    ('{2}', '26', 'Raichu', 'Type', 1, 0, 'Electric', null);
 
@@ -38,12 +42,27 @@ INSERT INTO notes
    ('{0}', 'Only in Pokemon Blue'),
    ('{1}', 'Must be caught using Masterball');
 
+
+
+
+
+
+
+
+
+
+
 INSERT INTO locations
    (ID, Name, Code, Region)
       VALUES
    ('{2}', 'Route 001', 'R.001', 'Kanto'),
    ('{3}', 'Route 020', 'R.020', 'Kanto'),
    ('{4}', 'Route 066', 'R.066', 'Kanto');
+
+
+
+
+
 
 INSERT INTO pokemons_locations
    (PokemonID, LocationID)
